@@ -1,0 +1,60 @@
+---
+interface Props {
+  category: string;
+  heading: string;
+  body: string;
+}
+
+const { category, heading, body } = Astro.props;
+---
+
+<article class="w-[340px] flex flex-col bg-white rounded-lg">
+  <div class="flex flex-col gap-3 self-stretch px-4 py-6">
+    <div class="flex flex-col gap-2 self-stretch">
+      <div
+        class="flex items-center bg-green-50 px-2 py-0.5 rounded-full border border-solid border-green-200 h-6 w-[67px]"
+      >
+        <span class="font-normal text-sm text-center text-green-700">
+          {category}
+        </span>
+      </div>
+      <h2 class="font-semibold text-lg text-neutral-900">{heading}</h2>
+    </div>
+    <div class="flex flex-col gap-6 self-stretch">
+      <span class="font-medium text-base text-neutral-600">{body}</span>
+      <button
+        class="w-[114px] h-6 flex items-center gap-1.5 rounded focus:shadow-custom focus:outline-1 focus:outline-indigo-700 disabled:cursor-not-allowed disabled:pointer-events-none"
+      >
+        <span
+          class="font-medium text-base text-indigo-700 hover:text-indigo-800 px-[2px]"
+          >Read more</span
+        >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-[13.333333015441895px] h-[12.963600158691406px]"
+        >
+          <path
+            d="M13.4764 9.16658L9.00637 4.69657L10.1849 3.51807L16.6667 9.99992L10.1849 16.4817L9.00637 15.3032L13.4764 10.8332H3.33337V9.16658H13.4764Z"
+            fill="currentColor"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <slot name="image" />
+</article>
+
+<style>
+  button * {
+    color: #4f46e5;
+  }
+  button:hover * {
+    color: #3730a3;
+  }
+  button:disabled * {
+    color: #a3a3a3;
+  }
+</style>

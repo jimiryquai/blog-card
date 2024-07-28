@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import BlogCard from "../components/BlogCard.astro";
+import spacejoy from "../assets/spacejoy.jpg";
+// import { Icon } from "astro-icon/components";
+---
+
+<Layout title="Welcome to Astro.">
+  <div
+    class="min-h-screen md:min-h-[1024px] min-w-[375px] md:min-w-[768px] xl:min-h-[768px] xl:min-w-[1024px] flex flex-col items-center md: mx-0 my-auto bg-gradient-to-b from-gray-50 to-[#d2d6db] py-[120px] px-[17.5px]"
+  >
+    <BlogCard
+      category="Interior"
+      heading="Top 5 Living Room Inspirations"
+      body="Curated vibrant colors for your living, make it pop & calm in the same time."
+    >
+      <Image
+        src={spacejoy}
+        alt="Spacejoy"
+        class="self-stretch h-72 object-cover order-first rounded-t-lg"
+        slot="image"
+        loading={"eager"}
+      />
+    </BlogCard>
+  </div>
+</Layout>
